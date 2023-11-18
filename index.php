@@ -14,18 +14,20 @@
     </style>
 </head>
 <body>
-    <?php
-        $name = "Dark Matter";
-        $read = false;
 
-        if($read) {
-            $message = " You have Read $name";
-        } else {
-            $message = " You have Not Read $name";
-        }
+    <h1> Recommended Book </h1>
+    <?php
+        $books = [
+            "Dark Matter",
+            "Hail Mary",
+            "The langoliers"
+        ];
     ?>
-    <h1>
-        <?= $message ?>
-    </h1>
+
+    <ul>
+        <?php foreach ($books as $book) : ?>
+            <li> <?= $book ?> </li>";
+        <?php endforeach; ?>
+    </ul>
 </body>
 </html>
