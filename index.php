@@ -33,20 +33,38 @@
                 "Url" => "https://example.com"
             ]
         ];
+        // Lambda function
+//        $filteredBooks = function ($books, $author){
+//            $filteredBook = [];
+//            foreach ($books as $book){
+//                if($book['author'] === $author){
+//                    $filteredBook = $book;
+//                }
+//            }
+//            return $filteredBook;
+//        };
 
-        function filter($books, $author){
+        function filter ($items, $fn){
             $filteredBook = [];
-            foreach ($books as $book){
-                if($book['author'] = $author){
-                    $filteredBook = $book;
+            foreach ($items as $item){
+                if($fn($item)){
+                    $filteredBook = $item;
                 }
             }
             return $filteredBook;
         }
+
+        $filteredBooks = filter($books, function ($book){
+            return $book['author'] === 'Ali';
+        });
+
+        $filteredBooks = array_filter($books, function ($book){
+            return $book['author'] === 'Ali';
+        });
     ?>
 
     <ul>
-        <?php foreach (filter($books, "Ali") as $book) : ?>
+        <?php foreach ($filteredBooks as $book) : ?>
                 <li>
                     <a href="<?= $book['Url']?>">
                         <?= $book['name'] ?>
