@@ -27,17 +27,31 @@
                 "name" => "Hail Mary",
                 "author" => "Ali",
                 "Url" => "https://example.com"
+            ], [
+                "name" => "Hail Mary",
+                "author" => "Ali",
+                "Url" => "https://example.com"
             ]
         ];
+
+        function filter($books, $author){
+            $filteredBook = [];
+            foreach ($books as $book){
+                if($book['author'] = $author){
+                    $filteredBook = $book;
+                }
+            }
+            return $filteredBook;
+        }
     ?>
 
     <ul>
-        <?php foreach ($books as $book) : ?>
-            <li>
-                <a href="<?= $book['Url']?>">
-                    <?= $book['name'] ?>
-                </a>
-            </li>";
+        <?php foreach (filter($books, "Ali") as $book) : ?>
+                <li>
+                    <a href="<?= $book['Url']?>">
+                        <?= $book['name'] ?>
+                    </a>
+                </li>
         <?php endforeach; ?>
     </ul>
 </body>
