@@ -1,6 +1,5 @@
 <?php
+
 require "helper.php";
+require "router.php";
 
-$header = "Home";
-
-include "views/index.view.php";
