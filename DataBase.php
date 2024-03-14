@@ -1,17 +1,21 @@
 <?php
-class DataBase {
+class DataBase 
+{
     private $conn;
     
-    public function __construct()
+    public function __construct($config, $user = "root", $password = "")
     {
-        $dsn = "mysql:host=localhost;port=3306;dbname=Demo;charset=utf8mb4"; //  data source name
-        $this->conn  = new PDO($dsn, "root", "");
+        $dsn = http_build_query($config, "", ";");
+        $this->conn  = new PDO($dsn, $user, $password, [
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ]);
     }
 
-    public function query($query)
+    public function query($query, $param = [])
     {
         $statment = $this->conn->prepare($query);    
-        $statment->execute();
-        return  $$statment;
+        $statment->execute($param);
+
+        return  $statment;
     }
 }

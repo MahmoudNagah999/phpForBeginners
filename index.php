@@ -1,16 +1,15 @@
 <?php
 
 require "helper.php";
-
 require "DataBase.php";
-
+$config = require "config.php";
 // require "router.php";
 
-$db = new DataBase();
-$posts = $db->query("select * from Posts")->fetchAll(PDO::FETCH_ASSOC);
+$db = new DataBase($config['database']);
 
-foreach($posts as $post){
-    echo "<li>" . $post['title'] . "</li>";
-}
+$id = $_GET['id'];
+$query = "select * from Posts where id = :id";
 
-     
+$posts = $db->query($query, [":id" => $id]);
+
+dd($posts);
