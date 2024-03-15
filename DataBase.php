@@ -5,7 +5,7 @@ class DataBase
     
     public function __construct($config, $user = "root", $password = "")
     {
-        $dsn = http_build_query($config, "", ";");
+        $dsn ='mysql:' . http_build_query($config, "", ";");
         $this->conn  = new PDO($dsn, $user, $password, [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
