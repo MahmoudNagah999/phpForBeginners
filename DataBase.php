@@ -13,7 +13,7 @@ class DataBase
 
     public function query($query, $param = [])
     {
-        $statment = $this->conn->prepare($query);    
+        $statment = $this->conn->prepare($query); 
         $statment->execute($param);
 
         return  $statment;

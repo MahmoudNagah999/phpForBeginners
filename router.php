@@ -12,6 +12,8 @@ $uri = parse_url($_SERVER['REQUEST_URI'])["path"];
 
 $routes = [
 '/phpForBeginners/' => 'controller/index.php',
+'/phpForBeginners/notes' => 'controller/notes.php',
+'/phpForBeginners/note' => 'controller/note.php',
 '/phpForBeginners/about' => 'controller/about.php',
 '/phpForBeginners/contact' => 'controller/contact.php',
 ];
