@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/PHP for Beginners.iml" filepath="$PROJECT_DIR$/.idea/PHP for Beginners.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/phpForBignners.iml" filepath="$PROJECT_DIR$/.idea/phpForBignners.iml" />
     </modules>
   </component>
 </project>

@@ -1,7 +1,4 @@
 <?php
 
-require "helper.php";
-require "DataBase.php";
-require "Response.php";
-require "router.php";
-
+$pageHeading = "Home";
+require "views/index.view.php";
