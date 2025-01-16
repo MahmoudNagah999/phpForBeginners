@@ -1,7 +1,12 @@
 <?php
 require "helpers.php";
 
-$pageHeading = "Home";
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-
-require "views/index.view.php";
+if ($uri === "/"){
+    require "controllers/index.php";
+} elseif($uri === "/about") {
+    require "controllers/about.php";
+} elseif($uri === "/contact") {
+    require "controllers/contact.php";
+}
