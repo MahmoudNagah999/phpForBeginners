@@ -1,17 +1,31 @@
 <?php
 
+$config = require ("config.php");
+$db = new Database($config['database']);
+
 $pageHeading = "Note - Create";
 
 if($_SERVER['REQUEST_METHOD'] === "POST")
 {
-    dd($_POST['body']);
-    $body = $_POST['body'];
+    $errors = [];
 
-    // $stmt = $pdo->prepare("INSERT INTO notes (body) VALUES (:body)");
-    // $stmt->execute(['body' => $body]);
+    if(strlen($_POST['body']) === 0)
+    {
+        $errors['body'] = "Body is required";
+    }
 
-    // header("Location: /notes");
-    // die();
+    if(strlen($_POST['body']) > 1000)
+    {
+        $errors['body'] = "Body is too long";
+    }
+
+    if(empty($errors))
+    {
+        $db->query("Insert into notes (body, user_id) values (:body, :user_id)",[
+            "body" => $_POST['body'],
+            "user_id" => 1
+        ]);
+    }
 }
 
 
